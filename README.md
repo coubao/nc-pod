@@ -91,3 +91,22 @@ rastop:nc-pod sostheim$ kubectl logs -f nc-pod-2355685321-3gd8r
 cmd: /bin/nc -lk -n -u -p 26500 
 Example of running netcat in a pod.
 ```
+
+## 1point3acres Application Case Scraper
+
+The `scrape_1point3acres.py` helper downloads application case posts from forum pages such as
+`https://www.1point3acres.com/bbs/forum-71-1.html`, extracts common fields (school, degree,
+GPA, GRE/GMAT/TOEFL, background, etc.), and saves them as JSON or CSV.
+
+Example usage:
+
+```
+python scrape_1point3acres.py \
+  --forum-url https://www.1point3acres.com/bbs/forum-71-1.html \
+  --pages 3 \
+  --delay 1.5 \
+  --output cases.json
+```
+
+Be considerate when crawling: respect the site's robots.txt, keep request rates low using the
+`--delay` flag, and limit the number of pages or threads as needed.
