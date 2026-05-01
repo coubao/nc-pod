@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ board_name }}</title>
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="logo">🎓 美本 PM</div>
+            <nav>
+                <a class="active">总览</a>
+                <a>学校数据库</a>
+                <a>文书管理</a>
+                <a>活动与奖项</a>
+                <a>时间线</a>
+                <a>材料中心</a>
+            </nav>
+        </aside>
+
+        <main class="main">
+            <header class="topbar">
+                <h1>{{ board_name }}</h1>
+                <button id="newTaskBtn">+ 新建任务</button>
+            </header>
+
+            <section class="stats-grid">
+                {% for item in stats %}
+                <div class="card stat-card">
+                    <span class="stat-label">{{ item.label }}</span>
+                    <span class="stat-value">{{ item.value }}</span>
+                </div>
+                {% endfor %}
+            </section>
+
+            <section class="card">
+                <h2>申请任务看板（Notion 风格）</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>任务</th>
+                            <th>负责人</th>
+                            <th>DDL</th>
+                            <th>优先级</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+                    <tbody id="taskBody">
+                        {% for task in tasks %}
+                        <tr>
+                            <td>{{ task.title }}</td>
+                            <td>{{ task.owner }}</td>
+                            <td>{{ task.deadline }}</td>
+                            <td><span class="pill priority-{{ task.priority }}">{{ task.priority }}</span></td>
+                            <td><span class="pill status">{{ task.status }}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
