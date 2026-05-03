@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-3">Top Schools Ranking</h1>
+<form class="row g-2 mb-3" method="get">
+  <div class="col-md-4"><input class="form-control" name="q" value="{{ q }}" placeholder="搜索学校" /></div>
+  <div class="col-md-4">
+    <select class="form-select" name="location">
+      <option value="">全部地区</option>
+      {% for l in locations %}
+      <option value="{{ l }}" {% if l==location %}selected{% endif %}>{{ l }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2"><button class="btn btn-primary w-100">筛选</button></div>
+</form>
+
+<div class="table-responsive">
+<table class="table table-striped align-middle">
+  <thead><tr><th>#</th><th>School</th><th>Location</th><th>Score</th><th>Tuition</th><th>Notes</th></tr></thead>
+  <tbody>
+    {% for r in rankings %}
+    <tr>
+      <td>{{ r.rank }}</td><td>{{ r.school }}</td><td>{{ r.location }}</td><td>{{ '%.1f'|format(r.score) }}</td><td>{{ r.tuition }}</td><td>{{ r.notes }}</td>
+    </tr>
+    {% else %}
+    <tr><td colspan="6" class="text-center">暂无数据</td></tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
