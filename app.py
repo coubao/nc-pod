@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, send_file
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import Integer, String, Float, Text
-from sqlalchemy.orm import Mapped, mapped_column
+
+try:
+    from flask_sqlalchemy import SQLAlchemy
+    from sqlalchemy import Integer, String, Float, Text
+    from sqlalchemy.orm import Mapped, mapped_column
+except ModuleNotFoundError as exc:
+    raise ModuleNotFoundError(
+        "Missing dependency: flask_sqlalchemy. Run: make init (or pip install -r requirements.txt)"
+    ) from exc
 import csv
 import io
 
