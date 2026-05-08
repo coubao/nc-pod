@@ -1,9 +1,31 @@
 {% extends 'base.html' %}
 {% block content %}
-<h2>后台管理</h2>
+<h2 class="fw-bold mb-3">后台管理</h2>
+
+<div class="row g-3 mb-3">
+  <div class="col-md-4">
+    <div class="panel p-3">
+      <div class="text-secondary small">学校总数</div>
+      <div class="h3 mb-0">{{ total }}</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel p-3">
+      <div class="text-secondary small">平均分</div>
+      <div class="h3 mb-0">{{ avg_score }}</div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="panel p-3">
+      <div class="text-secondary small">覆盖地区数</div>
+      <div class="h3 mb-0">{{ total_locations }}</div>
+    </div>
+  </div>
+</div>
+
 <div class="row g-3">
   <div class="col-lg-5">
-    <div class="card p-3">
+    <div class="panel p-3">
       <h5>新增记录</h5>
       <form method="post" action="/admin/add" class="row g-2">
         <div class="col-4"><input class="form-control" name="rank" type="number" placeholder="Rank" required></div>
@@ -15,7 +37,7 @@
         <div class="col-12"><button class="btn btn-success w-100">新增</button></div>
       </form>
     </div>
-    <div class="card p-3 mt-3">
+    <div class="panel p-3 mt-3">
       <h5>CSV导入</h5>
       <form method="post" action="/admin/upload-csv" enctype="multipart/form-data">
         <input class="form-control mb-2" type="file" name="csv_file" accept=".csv" required>
@@ -25,10 +47,11 @@
     </div>
   </div>
   <div class="col-lg-7">
-    <div class="card p-3">
+    <div class="panel p-3">
       <h5>编辑记录</h5>
+      <div class="admin-list">
       {% for r in rankings %}
-      <form method="post" action="/admin/update/{{ r.id }}" class="border rounded p-2 mb-2">
+      <form method="post" action="/admin/update/{{ r.id }}" class="border rounded p-2 mb-2 bg-white">
         <div class="row g-2">
           <div class="col-2"><input class="form-control" name="rank" value="{{ r.rank }}"></div>
           <div class="col-4"><input class="form-control" name="school" value="{{ r.school }}"></div>
@@ -47,6 +70,7 @@
       {% else %}
       <p class="text-muted">暂无记录</p>
       {% endfor %}
+      </div>
     </div>
   </div>
 </div>

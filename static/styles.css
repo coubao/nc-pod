@@ -43,3 +43,5 @@ body {
   background: linear-gradient(90deg, #2563eb, #0ea5e9);
   border: none;
 }
+
+.admin-list { max-height: 60vh; overflow-y: auto; }

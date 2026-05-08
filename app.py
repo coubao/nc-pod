@@ -43,7 +43,10 @@ def index():
 @app.get('/admin')
 def admin():
     rankings = Ranking.query.order_by(Ranking.rank.asc()).all()
-    return render_template('admin.html', rankings=rankings)
+    total = len(rankings)
+    avg_score = round(sum(r.score for r in rankings) / total, 1) if total else 0
+    total_locations = len({r.location for r in rankings if r.location})
+    return render_template('admin.html', rankings=rankings, total=total, avg_score=avg_score, total_locations=total_locations)
 
 @app.post('/admin/add')
 def add_ranking():
