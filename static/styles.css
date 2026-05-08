@@ -1,3 +1,45 @@
-body { background: #fafafa; }
-.card { border: 1px solid #e6e6e6; }
-h1,h2,h5 { font-weight: 700; }
+:root {
+  --sky-bg-1: #dff4ff;
+  --sky-bg-2: #b3e5ff;
+  --primary: #1d4ed8;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, var(--sky-bg-1) 0%, #ecf8ff 45%, #f8fcff 100%);
+  color: #0f172a;
+}
+
+.glass-nav {
+  background: rgba(14, 116, 211, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+.hero-section {
+  background: radial-gradient(circle at 15% 20%, rgba(255,255,255,.95), rgba(255,255,255,.55));
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(255,255,255,0.8);
+  border-radius: 18px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 12px 30px rgba(30, 64, 175, 0.12);
+}
+
+.card, .table-wrap, .panel {
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  background: rgba(255,255,255,.92);
+  box-shadow: 0 8px 24px rgba(14, 116, 211, 0.08);
+}
+
+.table thead th {
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #2563eb, #0ea5e9);
+  border: none;
+}
