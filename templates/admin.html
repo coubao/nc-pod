@@ -1,48 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
 <h2 class="fw-bold mb-3">后台管理</h2>
-
 <div class="row g-3 mb-3">
-  <div class="col-md-4">
-    <div class="panel p-3">
-      <div class="text-secondary small">学校总数</div>
-      <div class="h3 mb-0">{{ total }}</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel p-3">
-      <div class="text-secondary small">平均分</div>
-      <div class="h3 mb-0">{{ avg_score }}</div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="panel p-3">
-      <div class="text-secondary small">覆盖地区数</div>
-      <div class="h3 mb-0">{{ total_locations }}</div>
-    </div>
-  </div>
+  <div class="col-md-4"><div class="panel p-3"><div class="text-secondary small">学校总数</div><div class="h3 mb-0">{{ total }}</div></div></div>
+  <div class="col-md-4"><div class="panel p-3"><div class="text-secondary small">QS平均分</div><div class="h3 mb-0">{{ avg_score }}</div></div></div>
+  <div class="col-md-4"><div class="panel p-3"><div class="text-secondary small">覆盖地区数</div><div class="h3 mb-0">{{ total_locations }}</div></div></div>
 </div>
-
 <div class="row g-3">
   <div class="col-lg-5">
     <div class="panel p-3">
       <h5>新增记录</h5>
       <form method="post" action="/admin/add" class="row g-2">
-        <div class="col-4"><input class="form-control" name="rank" type="number" placeholder="Rank" required></div>
-        <div class="col-8"><input class="form-control" name="school" placeholder="School" required></div>
-        <div class="col-6"><input class="form-control" name="location" placeholder="Location"></div>
-        <div class="col-6"><input class="form-control" name="score" type="number" step="0.1" placeholder="Score"></div>
-        <div class="col-12"><input class="form-control" name="tuition" placeholder="Tuition"></div>
-        <div class="col-12"><textarea class="form-control" name="notes" placeholder="Notes"></textarea></div>
+        <div class="col-3"><input class="form-control" name="rank" type="number" placeholder="Rank" required></div>
+        <div class="col-9"><input class="form-control" name="school_name" placeholder="学校名称" required></div>
+        <div class="col-12"><input class="form-control" name="english_name" placeholder="英文名"></div>
+        <div class="col-12"><input class="form-control" name="region" placeholder="国家/地区"></div>
+        <div class="col-3"><input class="form-control" name="qs" type="number" step="0.1" placeholder="QS"></div>
+        <div class="col-3"><input class="form-control" name="usnews" type="number" step="0.1" placeholder="USNews"></div>
+        <div class="col-3"><input class="form-control" name="the" type="number" step="0.1" placeholder="THE"></div>
+        <div class="col-3"><input class="form-control" name="arwu" type="number" step="0.1" placeholder="ARWU"></div>
+        <div class="col-12"><textarea class="form-control" name="history_data" placeholder="历史数据"></textarea></div>
         <div class="col-12"><button class="btn btn-success w-100">新增</button></div>
-      </form>
-    </div>
-    <div class="panel p-3 mt-3">
-      <h5>CSV导入</h5>
-      <form method="post" action="/admin/upload-csv" enctype="multipart/form-data">
-        <input class="form-control mb-2" type="file" name="csv_file" accept=".csv" required>
-        <button class="btn btn-primary">覆盖导入</button>
-        <a class="btn btn-link" href="/admin/template.csv">下载模板</a>
       </form>
     </div>
   </div>
@@ -54,17 +32,17 @@
       <form method="post" action="/admin/update/{{ r.id }}" class="border rounded p-2 mb-2 bg-white">
         <div class="row g-2">
           <div class="col-2"><input class="form-control" name="rank" value="{{ r.rank }}"></div>
-          <div class="col-4"><input class="form-control" name="school" value="{{ r.school }}"></div>
-          <div class="col-3"><input class="form-control" name="location" value="{{ r.location }}"></div>
-          <div class="col-3"><input class="form-control" name="score" value="{{ r.score }}"></div>
-          <div class="col-6"><input class="form-control" name="tuition" value="{{ r.tuition }}"></div>
-          <div class="col-6"><input class="form-control" name="notes" value="{{ r.notes }}"></div>
-          <div class="col-12 d-flex gap-2">
-            <button class="btn btn-sm btn-outline-success">保存</button>
+          <div class="col-5"><input class="form-control" name="school_name" value="{{ r.school_name }}"></div>
+          <div class="col-5"><input class="form-control" name="english_name" value="{{ r.english_name }}"></div>
+          <div class="col-4"><input class="form-control" name="region" value="{{ r.region }}"></div>
+          <div class="col-2"><input class="form-control" name="qs" value="{{ r.qs }}"></div>
+          <div class="col-2"><input class="form-control" name="usnews" value="{{ r.usnews }}"></div>
+          <div class="col-2"><input class="form-control" name="the" value="{{ r.the }}"></div>
+          <div class="col-2"><input class="form-control" name="arwu" value="{{ r.arwu }}"></div>
+          <div class="col-12"><input class="form-control" name="history_data" value="{{ r.history_data }}"></div>
+          <div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-outline-success">保存</button>
       </form>
-            <form method="post" action="/admin/delete/{{ r.id }}" onsubmit="return confirm('确认删除？')">
-              <button class="btn btn-sm btn-outline-danger">删除</button>
-            </form>
+          <form method="post" action="/admin/delete/{{ r.id }}" onsubmit="return confirm('确认删除？')"><button class="btn btn-sm btn-outline-danger">删除</button></form>
           </div>
         </div>
       {% else %}

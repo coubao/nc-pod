@@ -15,11 +15,14 @@ db = SQLAlchemy(app)
 class Ranking(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     rank: Mapped[int] = mapped_column(Integer, nullable=False)
-    school: Mapped[str] = mapped_column(String(200), nullable=False)
-    location: Mapped[str] = mapped_column(String(200), default='')
-    score: Mapped[float] = mapped_column(Float, default=0.0)
-    tuition: Mapped[str] = mapped_column(String(120), default='')
-    notes: Mapped[str] = mapped_column(Text, default='')
+    school_name: Mapped[str] = mapped_column(String(200), nullable=False)
+    english_name: Mapped[str] = mapped_column(String(200), default='')
+    region: Mapped[str] = mapped_column(String(200), default='')
+    qs: Mapped[float] = mapped_column(Float, default=0.0)
+    usnews: Mapped[float] = mapped_column(Float, default=0.0)
+    the: Mapped[float] = mapped_column(Float, default=0.0)
+    arwu: Mapped[float] = mapped_column(Float, default=0.0)
+    history_data: Mapped[str] = mapped_column(Text, default='')
 
 @app.before_request
 def init_db_once():
@@ -27,38 +30,43 @@ def init_db_once():
 
 @app.get('/')
 def index():
-    q = request.args.get('q', '').strip()
-    location = request.args.get('location', '').strip()
+    school_name = request.args.get('school_name', '').strip()
+    english_name = request.args.get('english_name', '').strip()
+    region = request.args.get('region', '').strip()
 
     query = Ranking.query
-    if q:
-        query = query.filter(Ranking.school.ilike(f'%{q}%'))
-    if location:
-        query = query.filter(Ranking.location.ilike(f'%{location}%'))
+    if school_name:
+        query = query.filter(Ranking.school_name.ilike(f'%{school_name}%'))
+    if english_name:
+        query = query.filter(Ranking.english_name.ilike(f'%{english_name}%'))
+    if region:
+        query = query.filter(Ranking.region.ilike(f'%{region}%'))
 
     rankings = query.order_by(Ranking.rank.asc()).all()
-    locations = [x[0] for x in db.session.query(Ranking.location).distinct().filter(Ranking.location != '').all()]
-    return render_template('index.html', rankings=rankings, q=q, location=location, locations=sorted(locations))
+    return render_template('index.html', rankings=rankings, school_name=school_name, english_name=english_name, region=region)
 
 @app.get('/admin')
 def admin():
     rankings = Ranking.query.order_by(Ranking.rank.asc()).all()
     total = len(rankings)
-    avg_score = round(sum(r.score for r in rankings) / total, 1) if total else 0
-    total_locations = len({r.location for r in rankings if r.location})
+    avg_score = round(sum(r.qs for r in rankings) / total, 1) if total else 0
+    total_locations = len({r.region for r in rankings if r.region})
     return render_template('admin.html', rankings=rankings, total=total, avg_score=avg_score, total_locations=total_locations)
 
 @app.post('/admin/add')
 def add_ranking():
     row = Ranking(
         rank=int(request.form.get('rank', 0)),
-        school=request.form.get('school', '').strip(),
-        location=request.form.get('location', '').strip(),
-        score=float(request.form.get('score', 0) or 0),
-        tuition=request.form.get('tuition', '').strip(),
-        notes=request.form.get('notes', '').strip(),
+        school_name=request.form.get('school_name', '').strip(),
+        english_name=request.form.get('english_name', '').strip(),
+        region=request.form.get('region', '').strip(),
+        qs=float(request.form.get('qs', 0) or 0),
+        usnews=float(request.form.get('usnews', 0) or 0),
+        the=float(request.form.get('the', 0) or 0),
+        arwu=float(request.form.get('arwu', 0) or 0),
+        history_data=request.form.get('history_data', '').strip(),
     )
-    if not row.school or row.rank <= 0:
+    if not row.school_name or row.rank <= 0:
         flash('Rank 和 School 为必填项', 'danger')
         return redirect(url_for('admin'))
 
@@ -71,11 +79,14 @@ def add_ranking():
 def update_ranking(row_id: int):
     row = Ranking.query.get_or_404(row_id)
     row.rank = int(request.form.get('rank', row.rank))
-    row.school = request.form.get('school', row.school).strip()
-    row.location = request.form.get('location', row.location).strip()
-    row.score = float(request.form.get('score', row.score) or 0)
-    row.tuition = request.form.get('tuition', row.tuition).strip()
-    row.notes = request.form.get('notes', row.notes).strip()
+    row.school_name = request.form.get('school_name', row.school_name).strip()
+    row.english_name = request.form.get('english_name', row.english_name).strip()
+    row.region = request.form.get('region', row.region).strip()
+    row.qs = float(request.form.get('qs', row.qs) or 0)
+    row.usnews = float(request.form.get('usnews', row.usnews) or 0)
+    row.the = float(request.form.get('the', row.the) or 0)
+    row.arwu = float(request.form.get('arwu', row.arwu) or 0)
+    row.history_data = request.form.get('history_data', row.history_data).strip()
 
     db.session.commit()
     flash('更新成功', 'success')
@@ -105,13 +116,16 @@ def upload_csv():
         try:
             row = Ranking(
                 rank=int(r.get('rank', 0)),
-                school=(r.get('school') or '').strip(),
-                location=(r.get('location') or '').strip(),
-                score=float(r.get('score', 0) or 0),
-                tuition=(r.get('tuition') or '').strip(),
-                notes=(r.get('notes') or '').strip(),
+                school_name=(r.get('school_name') or '').strip(),
+                english_name=(r.get('english_name') or '').strip(),
+                region=(r.get('region') or '').strip(),
+                qs=float(r.get('qs', 0) or 0),
+                usnews=float(r.get('usnews', 0) or 0),
+                the=float(r.get('the', 0) or 0),
+                arwu=float(r.get('arwu', 0) or 0),
+                history_data=(r.get('history_data') or '').strip(),
             )
-            if row.rank > 0 and row.school:
+            if row.rank > 0 and row.school_name:
                 db.session.add(row)
                 count += 1
         except Exception:
@@ -122,7 +136,7 @@ def upload_csv():
 
 @app.get('/admin/template.csv')
 def download_template():
-    sample = 'rank,school,location,score,tuition,notes\n1,Sample University,CA,98.2,$56000,Strong STEM program\n'
+    sample = 'rank,school_name,english_name,region,qs,usnews,the,arwu,history_data\n1,示例大学,Sample University,美国,98.2,92.5,88.0,85.5,2023:95|2024:97|2025:98\n'
     return send_file(
         io.BytesIO(sample.encode('utf-8')),
         mimetype='text/csv',
