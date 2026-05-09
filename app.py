@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash, sen
 
 try:
     from flask_sqlalchemy import SQLAlchemy
-    from sqlalchemy import Integer, String, Float, Text
+    from sqlalchemy import Integer, String, Float, Text, text as sql_text
     from sqlalchemy.orm import Mapped, mapped_column
 except ModuleNotFoundError as exc:
     raise ModuleNotFoundError(
@@ -30,9 +30,45 @@ class Ranking(db.Model):
     arwu: Mapped[float] = mapped_column(Float, default=0.0)
     history_data: Mapped[str] = mapped_column(Text, default='')
 
+
+
+def ensure_ranking_schema():
+    # Lightweight SQLite schema patching for users upgrading from older columns
+    db.create_all()
+    cols = {row[1] for row in db.session.execute(sql_text("PRAGMA table_info(ranking)")).fetchall()}
+    if not cols:
+        return
+
+    ddl = []
+    if 'school_name' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN school_name VARCHAR(200) DEFAULT ''")
+    if 'english_name' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN english_name VARCHAR(200) DEFAULT ''")
+    if 'region' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN region VARCHAR(200) DEFAULT ''")
+    if 'qs' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN qs FLOAT DEFAULT 0")
+    if 'usnews' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN usnews FLOAT DEFAULT 0")
+    if 'the' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN the FLOAT DEFAULT 0")
+    if 'arwu' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN arwu FLOAT DEFAULT 0")
+    if 'history_data' not in cols:
+        ddl.append("ALTER TABLE ranking ADD COLUMN history_data TEXT DEFAULT ''")
+
+    for stmt in ddl:
+        db.session.execute(sql_text(stmt))
+
+    # Backfill school_name from old column if present and new column empty
+    if 'school' in cols:
+        db.session.execute(sql_text("UPDATE ranking SET school_name = school WHERE (school_name IS NULL OR school_name = '') AND school IS NOT NULL"))
+    if 'location' in cols:
+        db.session.execute(sql_text("UPDATE ranking SET region = location WHERE (region IS NULL OR region = '') AND location IS NOT NULL"))
+    db.session.commit()
 @app.before_request
 def init_db_once():
-    db.create_all()
+    ensure_ranking_schema()
 
 @app.get('/')
 def index():
