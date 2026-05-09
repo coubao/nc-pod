@@ -10,12 +10,12 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light glass-nav border-bottom">
   <div class="container py-2">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('index') }}">
       <img src="{{ url_for('static', filename='logo.svg') }}" alt="瀛动教育" height="36">
     </a>
     <div class="d-flex gap-2">
-      <a class="btn btn-outline-light btn-sm" href="/">排行榜</a>
-      <a class="btn btn-primary btn-sm" href="/admin">后台管理</a>
+      <a class="btn btn-outline-light btn-sm" href="{{ url_for('index') }}">排行榜</a>
+      <a class="btn btn-primary btn-sm" href="{{ url_for('admin') }}">后台管理</a>
     </div>
   </div>
 </nav>

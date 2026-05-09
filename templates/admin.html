@@ -10,7 +10,7 @@
   <div class="col-lg-5">
     <div class="panel p-3">
       <h5>新增记录</h5>
-      <form method="post" action="/admin/add" class="row g-2">
+      <form method="post" action="{{ url_for('add_ranking') }}" class="row g-2">
         <div class="col-3"><input class="form-control" name="rank" type="number" placeholder="Rank" required></div>
         <div class="col-9"><input class="form-control" name="school_name" placeholder="学校名称" required></div>
         <div class="col-12"><input class="form-control" name="english_name" placeholder="英文名"></div>
@@ -29,7 +29,7 @@
       <h5>编辑记录</h5>
       <div class="admin-list">
       {% for r in rankings %}
-      <form method="post" action="/admin/update/{{ r.id }}" class="border rounded p-2 mb-2 bg-white">
+      <form method="post" action="{{ url_for('update_ranking', row_id=r.id) }}" class="border rounded p-2 mb-2 bg-white">
         <div class="row g-2">
           <div class="col-2"><input class="form-control" name="rank" value="{{ r.rank }}"></div>
           <div class="col-5"><input class="form-control" name="school_name" value="{{ r.school_name }}"></div>
@@ -42,7 +42,7 @@
           <div class="col-12"><input class="form-control" name="history_data" value="{{ r.history_data }}"></div>
           <div class="col-12 d-flex gap-2"><button class="btn btn-sm btn-outline-success">保存</button>
       </form>
-          <form method="post" action="/admin/delete/{{ r.id }}" onsubmit="return confirm('确认删除？')"><button class="btn btn-sm btn-outline-danger">删除</button></form>
+          <form method="post" action="{{ url_for('delete_ranking', row_id=r.id) }}" onsubmit="return confirm('确认删除？')"><button class="btn btn-sm btn-outline-danger">删除</button></form>
           </div>
         </div>
       {% else %}
