@@ -2,28 +2,27 @@
 {% block content %}
 <section class="panel p-4 p-md-5 mb-4 premium-hero">
   <div class="row align-items-center g-4">
-    <div class="col-lg-8">
-      <span class="badge text-bg-primary mb-3">升学规划说明 2025版 · 含美英双申/多国连申</span>
-      <h2 class="display-6 fw-bold">赢在瀛动，成就梦想</h2>
-      <p class="text-secondary mt-3 mb-2">2015年至今，我们坚持“陪伴式共同成长”理念，服务721组家庭，90%学生升读美国TOP30/QS TOP100院校。</p>
-      <p class="text-secondary">从学科预备、目标定位、申请执行到签证与海外服务，提供全链路、可量化、可复盘的留学规划体系。</p>
-      <div class="d-flex gap-2 mt-3 flex-wrap">
+    <div class="col-lg-7">
+      <span class="badge text-bg-primary mb-3">升学规划说明 2025版 · 美英双申 / 多国连申</span>
+      <h2 class="display-5 fw-bold mb-3">赢在瀛动，成就梦想</h2>
+      <p class="lead text-secondary">以“陪伴式共同成长”为核心，覆盖学科预备、申请定位、文书执行、签证与海外服务，打造结果导向的留学规划方案。</p>
+      <div class="d-flex flex-wrap gap-2 mt-3">
         <a class="btn btn-primary" href="{{ url_for('index') }}">查看大学排行榜</a>
-        <a class="btn btn-outline-primary" href="#services">查看服务目录</a>
+        <a class="btn btn-outline-primary" href="#timeline">查看时间规划</a>
       </div>
     </div>
-    <div class="col-lg-4">
+    <div class="col-lg-5">
       <div class="hero-card stat-card">
         <div class="stat"><span>721</span><small>累计服务家庭</small></div>
         <div class="stat"><span>90%</span><small>升读TOP院校比例</small></div>
-        <div class="stat"><span>18年+</span><small>专业留学服务经验</small></div>
+        <div class="stat"><span>18年+</span><small>专业服务经验</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="panel p-4 mb-4" id="services">
-  <h3 class="fw-bold mb-3">九大服务流程（全周期）</h3>
+<section class="panel p-4 mb-4" id="timeline">
+  <h3 class="fw-bold mb-3">九大服务流程</h3>
   <div class="timeline-grid">
     <div>1 咨询阶段</div><div>2 签约阶段</div><div>3 明确目标</div>
     <div>4 申请准备</div><div>5 开始申请</div><div>6 录取通知</div>
@@ -32,52 +31,42 @@
 </section>
 
 <section class="row g-3 mb-4">
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>学科预备</h5><p class="text-secondary mb-0">Alevel/IB/AP/OSSD/DSE等课程路径对比，匹配学习特性与目标专业。</p></div></div>
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>英语能力提升</h5><p class="text-secondary mb-0">原版阅读、学术写作、托福雅思与SAT/ACT/AP全模块准备。</p></div></div>
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>探究与定位</h5><p class="text-secondary mb-0">多维度院校专业分析：排名、预算、就业率、课程与职业导向。</p></div></div>
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>美英双申/多国连申</h5><p class="text-secondary mb-0">含美、英、加、澳、新、港等多国联动，提升录取确定性。</p></div></div>
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>申请执行</h5><p class="text-secondary mb-0">文书、推荐信、认证、网申、面试、奖学金、作品集一体化推进。</p></div></div>
-  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>结果与后续</h5><p class="text-secondary mb-0">录取后签证、行前、海外落地、实习就业与归国政策指导。</p></div></div>
+  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">学科预备</h6><p class="small text-secondary mb-0">Alevel / IB / AP 路径对比与能力定位。</p></div></div>
+  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">英语能力</h6><p class="small text-secondary mb-0">阅读、写作、标化考试全链路提升。</p></div></div>
+  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">申请策略</h6><p class="small text-secondary mb-0">美英双申+多国连申，提升录取确定性。</p></div></div>
+  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">结果管理</h6><p class="small text-secondary mb-0">签证、行前、海外落地与职业规划。</p></div></div>
 </section>
 
 <section class="panel p-4 mb-4">
-  <h3 class="fw-bold mb-3">2025申请季关键时间线</h3>
+  <h3 class="fw-bold mb-3">2025申请季关键节点</h3>
   <div class="checklist row g-2">
-    <div class="col-md-6">4月：奖项/活动梳理，学术身份构建</div>
-    <div class="col-md-6">6月：大学/专业目标树立，头脑风暴</div>
-    <div class="col-md-6">8月：文书初稿ready</div>
-    <div class="col-md-6">10-11月：ED/REA/EA递交窗口</div>
-    <div class="col-md-6">12月：ED/EA放榜，ED2与多国方案联动</div>
-    <div class="col-md-6">次年2月：推荐信/送分/认证/面试总检查</div>
+    <div class="col-md-4">4月：梳理奖项/活动，构建学术身份</div>
+    <div class="col-md-4">6月：确定大学与专业目标</div>
+    <div class="col-md-4">8月：文书草稿完成</div>
+    <div class="col-md-4">10-11月：ED/REA/EA递交</div>
+    <div class="col-md-4">12月：ED/EA放榜与ED2准备</div>
+    <div class="col-md-4">次年2月：推荐信/送分/认证复核</div>
   </div>
-</section>
-
-<section class="panel p-4 mb-4">
-  <h3 class="fw-bold mb-3">英美申请趋势与院校洞察（节选）</h3>
-  <ul>
-    <li>趋势：更重视个性化表达、跨学科能力与社区贡献。</li>
-    <li>变化：部分院校ED政策调整，面试与视频题比重提升。</li>
-    <li>AI影响：可辅助润色，但“个人故事真实性”权重更高。</li>
-    <li>G5洞察：牛津/剑桥/IC/UCL/LSE持续聚焦学术匹配度与课程难度。</li>
-    <li>港新策略：热门专业con要求常高于官网基础门槛，需前置冲刺。</li>
-  </ul>
 </section>
 
 <section class="panel p-4 mb-4 promise-list">
   <h3 class="fw-bold mb-3">瀛动教育特别承诺</h3>
   <div class="row g-3">
-    <div class="col-md-4"><div class="promise-item"><strong>SERVICE 1</strong><p class="mb-0">申请学校都不成功，退还服务费用。</p></div></div>
+    <div class="col-md-4"><div class="promise-item"><strong>SERVICE 1</strong><p class="mb-0">申请不成功，退还服务费用。</p></div></div>
     <div class="col-md-4"><div class="promise-item"><strong>SERVICE 2</strong><p class="mb-0">近十年留学签证通过率 100%。</p></div></div>
     <div class="col-md-4"><div class="promise-item"><strong>SERVICE 3</strong><p class="mb-0">从“成功留学”跃升到“留学成功”。</p></div></div>
   </div>
 </section>
 
 <section class="panel p-4">
-  <h3 class="fw-bold mb-3">联系我们</h3>
-  <div class="row g-3">
-    <div class="col-md-4"><div class="small text-secondary">公司地址</div><div>北京中关村远中悦莱</div></div>
-    <div class="col-md-4"><div class="small text-secondary">咨询电话</div><div>400-000-0000</div></div>
-    <div class="col-md-4"><div class="small text-secondary">咨询邮箱</div><div>admissions@yindongedu.com</div></div>
+  <div class="row align-items-center g-3">
+    <div class="col-lg-8">
+      <h3 class="fw-bold mb-2">立即获取个性化升学方案</h3>
+      <p class="text-secondary mb-0">根据学生兴趣、成绩、活动与职业方向，生成可执行的留学规划路线图。</p>
+    </div>
+    <div class="col-lg-4 text-lg-end">
+      <a class="btn btn-primary" href="{{ url_for('admin') }}">预约咨询 / 后台管理</a>
+    </div>
   </div>
 </section>
 {% endblock %}
