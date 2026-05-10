@@ -95,43 +95,65 @@ def admin():
     total_locations = len({r.region for r in rankings if r.region})
     return render_template('admin.html', rankings=rankings, total=total, avg_score=avg_score, total_locations=total_locations)
 
+
+
+def to_int(value, default=0):
+    try:
+        return int(str(value).strip())
+    except (TypeError, ValueError):
+        return default
+
+
+def to_float(value, default=0.0):
+    try:
+        return float(str(value).strip())
+    except (TypeError, ValueError):
+        return default
 @app.post('/admin/add')
 def add_ranking():
     row = Ranking(
-        rank=int(request.form.get('rank', 0)),
+        rank=to_int(request.form.get('rank', 0)),
         school_name=request.form.get('school_name', '').strip(),
         english_name=request.form.get('english_name', '').strip(),
         region=request.form.get('region', '').strip(),
-        qs=float(request.form.get('qs', 0) or 0),
-        usnews=float(request.form.get('usnews', 0) or 0),
-        the=float(request.form.get('the', 0) or 0),
-        arwu=float(request.form.get('arwu', 0) or 0),
+        qs=to_float(request.form.get('qs', 0), 0),
+        usnews=to_float(request.form.get('usnews', 0), 0),
+        the=to_float(request.form.get('the', 0), 0),
+        arwu=to_float(request.form.get('arwu', 0), 0),
         history_data=request.form.get('history_data', '').strip(),
     )
     if not row.school_name or row.rank <= 0:
         flash('Rank 和 School 为必填项', 'danger')
         return redirect(url_for('admin'))
 
-    db.session.add(row)
-    db.session.commit()
-    flash('新增成功', 'success')
+    try:
+        db.session.add(row)
+        db.session.commit()
+        flash('新增成功', 'success')
+    except Exception as exc:
+        db.session.rollback()
+        flash(f'新增失败: {exc}', 'danger')
     return redirect(url_for('admin'))
 
 @app.post('/admin/update/<int:row_id>')
 def update_ranking(row_id: int):
     row = Ranking.query.get_or_404(row_id)
-    row.rank = int(request.form.get('rank', row.rank))
+    row.rank = to_int(request.form.get('rank', row.rank), row.rank)
     row.school_name = request.form.get('school_name', row.school_name).strip()
     row.english_name = request.form.get('english_name', row.english_name).strip()
     row.region = request.form.get('region', row.region).strip()
-    row.qs = float(request.form.get('qs', row.qs) or 0)
-    row.usnews = float(request.form.get('usnews', row.usnews) or 0)
-    row.the = float(request.form.get('the', row.the) or 0)
-    row.arwu = float(request.form.get('arwu', row.arwu) or 0)
+    row.qs = to_float(request.form.get('qs', row.qs), row.qs)
+    row.usnews = to_float(request.form.get('usnews', row.usnews), row.usnews)
+    row.the = to_float(request.form.get('the', row.the), row.the)
+    row.arwu = to_float(request.form.get('arwu', row.arwu), row.arwu)
     row.history_data = request.form.get('history_data', row.history_data).strip()
 
-    db.session.commit()
-    flash('更新成功', 'success')
+    try:
+        db.session.commit()
+        flash('更新成功', 'success')
+    except Exception as exc:
+        db.session.rollback()
+        flash(f'更新失败: {exc}', 'danger')
     return redirect(url_for('admin'))
 
 @app.post('/admin/delete/<int:row_id>')
