@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel p-4 p-md-5 mb-4">
+  <div class="row align-items-center g-4">
+    <div class="col-lg-7">
+      <span class="badge text-bg-primary mb-3">瀛动教育 · 国际升学规划</span>
+      <h2 class="display-6 fw-bold">一站式留学规划与名校申请服务</h2>
+      <p class="text-secondary mt-3">我们提供择校评估、背景提升、文书辅导、申请跟踪与签证指导，帮助学生从定位到录取全过程高效推进。</p>
+      <div class="d-flex gap-2 mt-3 flex-wrap">
+        <a class="btn btn-primary" href="{{ url_for('index') }}">查看大学排行榜</a>
+        <a class="btn btn-outline-primary" href="#services">了解服务</a>
+      </div>
+    </div>
+    <div class="col-lg-5">
+      <div class="hero-card">
+        <h5 class="fw-bold">为什么选择瀛动教育？</h5>
+        <ul class="mb-0 text-secondary">
+          <li>资深顾问 1v1 规划</li>
+          <li>透明化申请时间线</li>
+          <li>数据化选校策略与风险分层</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="mb-4">
+  <h3 class="fw-bold mb-3">核心服务</h3>
+  <div class="row g-3">
+    <div class="col-md-4"><div class="panel p-3 h-100"><h5>本科申请</h5><p class="text-secondary mb-0">选校策略、活动规划、文书打磨、网申递交全流程。</p></div></div>
+    <div class="col-md-4"><div class="panel p-3 h-100"><h5>研究生申请</h5><p class="text-secondary mb-0">专业匹配、科研/实习包装、推荐信与 SOP 精修。</p></div></div>
+    <div class="col-md-4"><div class="panel p-3 h-100"><h5>背景提升</h5><p class="text-secondary mb-0">竞赛、科研、夏校、实习项目推荐与执行辅导。</p></div></div>
+  </div>
+</section>
+
+<section class="panel p-4">
+  <h3 class="fw-bold mb-3">联系我们</h3>
+  <div class="row g-3">
+    <div class="col-md-4"><div class="small text-secondary">咨询邮箱</div><div>admissions@yindongedu.com</div></div>
+    <div class="col-md-4"><div class="small text-secondary">咨询电话</div><div>400-000-0000</div></div>
+    <div class="col-md-4"><div class="small text-secondary">服务时间</div><div>周一至周日 09:00 - 21:00</div></div>
+  </div>
+</section>
+{% endblock %}

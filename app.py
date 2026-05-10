@@ -71,6 +71,10 @@ def init_db_once():
     ensure_ranking_schema()
 
 @app.get('/')
+def home():
+    return render_template('home.html')
+
+@app.get('/ranking')
 def index():
     school_name = request.args.get('school_name', '').strip()
     english_name = request.args.get('english_name', '').strip()
