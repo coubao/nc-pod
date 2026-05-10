@@ -45,3 +45,9 @@ body {
 }
 
 .admin-list { max-height: 60vh; overflow-y: auto; }
+
+
+.service-index > div { background: #f0f9ff; border: 1px solid #bfdbfe; border-radius: 10px; padding: .5rem .75rem; }
+.promise-list .promise-item { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 12px; padding: .85rem; }
+.panel ul { margin-bottom: 0; color: #334155; }
+.panel li { margin-bottom: .35rem; }
