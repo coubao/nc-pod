@@ -1,55 +1,66 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="panel p-4 p-md-5 mb-4">
+<section class="panel p-4 p-md-5 mb-4 premium-hero">
   <div class="row align-items-center g-4">
     <div class="col-lg-8">
-      <span class="badge text-bg-primary mb-3">赢在瀛动 成就梦想</span>
-      <h2 class="display-6 fw-bold">专业服务理念，带你重新规划留学新主张</h2>
-      <p class="text-secondary mt-3 mb-2">瀛动教育（北京中关村远中悦莱）是中国教育部阳光留学项目执行方，为全国多所国际学校提供名校申请支持。</p>
-      <p class="text-secondary">我们已积累十八年专业留学服务经验，首创“留学规划”理念、头脑风暴挖掘法与留学六步曲服务流程，帮助学生实现从“成功留学”到“留学成功”。</p>
+      <span class="badge text-bg-primary mb-3">升学规划说明 2025版 · 含美英双申/多国连申</span>
+      <h2 class="display-6 fw-bold">赢在瀛动，成就梦想</h2>
+      <p class="text-secondary mt-3 mb-2">2015年至今，我们坚持“陪伴式共同成长”理念，服务721组家庭，90%学生升读美国TOP30/QS TOP100院校。</p>
+      <p class="text-secondary">从学科预备、目标定位、申请执行到签证与海外服务，提供全链路、可量化、可复盘的留学规划体系。</p>
       <div class="d-flex gap-2 mt-3 flex-wrap">
         <a class="btn btn-primary" href="{{ url_for('index') }}">查看大学排行榜</a>
         <a class="btn btn-outline-primary" href="#services">查看服务目录</a>
       </div>
     </div>
     <div class="col-lg-4">
-      <div class="hero-card">
-        <h5 class="fw-bold">关于我们</h5>
-        <ul class="text-secondary mb-0">
-          <li>关注就业，重视职业规划</li>
-          <li>兴趣决定专业，专业决定学校</li>
-          <li>全程指导，定制化申请方案</li>
-        </ul>
+      <div class="hero-card stat-card">
+        <div class="stat"><span>721</span><small>累计服务家庭</small></div>
+        <div class="stat"><span>90%</span><small>升读TOP院校比例</small></div>
+        <div class="stat"><span>18年+</span><small>专业留学服务经验</small></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services" class="panel p-4 mb-4">
-  <h3 class="fw-bold mb-3">服务内容目录</h3>
-  <div class="row g-2 service-index">
-    <div class="col-md-4">1. 咨询阶段</div>
-    <div class="col-md-4">2. 签约阶段</div>
-    <div class="col-md-4">3. 明确目标项目/学校</div>
-    <div class="col-md-4">4. 申请准备服务</div>
-    <div class="col-md-4">5. 开始申请</div>
-    <div class="col-md-4">6. 录取通知书</div>
-    <div class="col-md-4">7. 签证服务</div>
-    <div class="col-md-4">8. 行前服务</div>
-    <div class="col-md-4">9. 海外服务</div>
+<section class="panel p-4 mb-4" id="services">
+  <h3 class="fw-bold mb-3">九大服务流程（全周期）</h3>
+  <div class="timeline-grid">
+    <div>1 咨询阶段</div><div>2 签约阶段</div><div>3 明确目标</div>
+    <div>4 申请准备</div><div>5 开始申请</div><div>6 录取通知</div>
+    <div>7 签证服务</div><div>8 行前服务</div><div>9 海外服务</div>
   </div>
 </section>
 
 <section class="row g-3 mb-4">
-  <div class="col-lg-6"><div class="panel p-3"><h5>1. 咨询阶段</h5><ul><li>国家教育概况、排名制度、签证政策不限次数咨询。</li><li>专业方向利弊分析、院系数据评估与就业导向分析。</li><li>标准化考试说明（SAT/ACT/AP/TOEFL/IELTS/GRE/GMAT 等）。</li><li>Dream Major / Dream School 申请案例对比与规划建议。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>2. 签约阶段</h5><ul><li>讲解留学全流程与协议、费用、资料准备步骤。</li><li>指导完成客户素材表、简历表、时间管理表。</li><li>签约人与工作时间、地点合理安排。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>3. 明确目标项目、学校</h5><ul><li>目标学校申请要求深度解读。</li><li>职业规划与选校关系梳理、入学率就业率数据比对。</li><li>地理位置、安全系数等选校维度评估。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>4. 申请准备服务</h5><ul><li>文书制作与不限次修改（基于明确修改意见）。</li><li>材料翻译、推荐人策略、背景提升活动建议。</li><li>科研/竞赛/义工/交流活动等申请竞争力提升。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>5. 开始申请</h5><ul><li>网申全透明服务，学校审理反馈及时转达。</li><li>指导完成 CDGDC/WES/ECE 认证与资金证明。</li><li>面试预约与辅导、奖学金申请、截止日期提醒。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>6. 录取通知书</h5><ul><li>押金支付、defer 延迟入学、语言班申请。</li><li>I-20 等签证材料办理及与大学沟通。</li><li>无条件录取推进、最终学校确认与奖学金建议。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>7. 签证服务</h5><ul><li>DS-160 等表格填写、预约签证、面签辅导。</li><li>资金准备、签证问题答疑、加急与护照代取。</li><li>探亲签证可增值支持（以顾问方案为准）。</li></ul></div></div>
-  <div class="col-lg-6"><div class="panel p-3"><h5>8. 行前服务</h5><ul><li>选课、宿舍、机票、接机、外汇与行李指导。</li><li>出入境注意事项、海外学习生活建议。</li><li>院校注册、银行开户、警察局注册指导。</li></ul></div></div>
-  <div class="col-12"><div class="panel p-3"><h5>9. 海外服务（实习/就业/移民）</h5><ul><li>校友圈连接、续签指导、大使馆网站注册指导。</li><li>工作签证、移民律师咨询、归国政策解读。</li><li>落户/创业/置业/购车免税等政策建议。</li></ul></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>学科预备</h5><p class="text-secondary mb-0">Alevel/IB/AP/OSSD/DSE等课程路径对比，匹配学习特性与目标专业。</p></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>英语能力提升</h5><p class="text-secondary mb-0">原版阅读、学术写作、托福雅思与SAT/ACT/AP全模块准备。</p></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>探究与定位</h5><p class="text-secondary mb-0">多维度院校专业分析：排名、预算、就业率、课程与职业导向。</p></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>美英双申/多国连申</h5><p class="text-secondary mb-0">含美、英、加、澳、新、港等多国联动，提升录取确定性。</p></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>申请执行</h5><p class="text-secondary mb-0">文书、推荐信、认证、网申、面试、奖学金、作品集一体化推进。</p></div></div>
+  <div class="col-md-6 col-xl-4"><div class="panel p-3 h-100"><h5>结果与后续</h5><p class="text-secondary mb-0">录取后签证、行前、海外落地、实习就业与归国政策指导。</p></div></div>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">2025申请季关键时间线</h3>
+  <div class="checklist row g-2">
+    <div class="col-md-6">4月：奖项/活动梳理，学术身份构建</div>
+    <div class="col-md-6">6月：大学/专业目标树立，头脑风暴</div>
+    <div class="col-md-6">8月：文书初稿ready</div>
+    <div class="col-md-6">10-11月：ED/REA/EA递交窗口</div>
+    <div class="col-md-6">12月：ED/EA放榜，ED2与多国方案联动</div>
+    <div class="col-md-6">次年2月：推荐信/送分/认证/面试总检查</div>
+  </div>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">英美申请趋势与院校洞察（节选）</h3>
+  <ul>
+    <li>趋势：更重视个性化表达、跨学科能力与社区贡献。</li>
+    <li>变化：部分院校ED政策调整，面试与视频题比重提升。</li>
+    <li>AI影响：可辅助润色，但“个人故事真实性”权重更高。</li>
+    <li>G5洞察：牛津/剑桥/IC/UCL/LSE持续聚焦学术匹配度与课程难度。</li>
+    <li>港新策略：热门专业con要求常高于官网基础门槛，需前置冲刺。</li>
+  </ul>
 </section>
 
 <section class="panel p-4 mb-4 promise-list">
