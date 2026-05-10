@@ -91,6 +91,11 @@ def index():
     rankings = query.order_by(Ranking.rank.asc()).all()
     return render_template('index.html', rankings=rankings, school_name=school_name, english_name=english_name, region=region)
 
+
+@app.get('/guide')
+def guide():
+    return render_template('guide.html')
+
 @app.get('/admin')
 def admin():
     rankings = Ranking.query.order_by(Ranking.rank.asc()).all()

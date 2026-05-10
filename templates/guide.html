@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel p-4 p-md-5 mb-4">
+  <h2 class="fw-bold mb-3">留学专业指南（瀛动教育原创版）</h2>
+  <p class="text-secondary">本页面为原创知识体系，覆盖美国留学申请全流程与核心决策点，帮助学生与家庭快速建立“国家-专业-学校-职业”一体化认知。</p>
+</section>
+
+<section class="row g-3 mb-4">
+  <div class="col-md-6"><div class="panel p-3 h-100"><h5>一、申请总览</h5><ul><li>美本/美研申请路径、学制、申请轮次（EA/ED/RD）。</li><li>时间规划：9-12个月标准节奏与关键里程碑。</li><li>院校层次：综合性大学、文理学院、专业学院差异。</li></ul></div></div>
+  <div class="col-md-6"><div class="panel p-3 h-100"><h5>二、专业选择方法</h5><ul><li>兴趣、能力、就业三维定位模型。</li><li>热门专业：CS、Data、Econ、Bio、Psych、Engineering。</li><li>跨学科趋势：CS+X、Business+AI、Design+Tech。</li></ul></div></div>
+  <div class="col-md-6"><div class="panel p-3 h-100"><h5>三、背景提升策略</h5><ul><li>学术：课程难度/GPA/标化成绩。</li><li>活动：科研、竞赛、实习、公益与领导力。</li><li>文书：主线故事、价值观、成长证据。</li></ul></div></div>
+  <div class="col-md-6"><div class="panel p-3 h-100"><h5>四、材料准备清单</h5><ul><li>成绩单、在读证明、推荐信、CV、PS。</li><li>作品集（艺术/建筑/交互方向）与面试准备。</li><li>认证与送分：WES/CDGDC/ETS/IELTS 等。</li></ul></div></div>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">美国留学申请时间线（示例）</h3>
+  <div class="checklist row g-2">
+    <div class="col-md-4">3-5月：定方向、选校池、活动盘点</div>
+    <div class="col-md-4">6-8月：文书初稿、推荐信沟通、标化冲刺</div>
+    <div class="col-md-4">9-11月：EA/ED提交，材料查漏补缺</div>
+    <div class="col-md-4">12-2月：RD提交、面试、补件</div>
+    <div class="col-md-4">3-4月：录取比较、奖学金评估</div>
+    <div class="col-md-4">5-8月：确认入学、签证、行前准备</div>
+  </div>
+</section>
+
+<section class="panel p-4">
+  <h3 class="fw-bold mb-3">咨询建议</h3>
+  <p class="text-secondary mb-3">如果你希望把上述框架映射到个人背景（成绩/活动/预算/职业方向），可以在后台预约咨询，我们会输出个性化申请路线图。</p>
+  <a class="btn btn-primary" href="{{ url_for('admin') }}">预约咨询</a>
+</section>
+{% endblock %}
