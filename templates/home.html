@@ -1,72 +1,52 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="panel p-4 p-md-5 mb-4 premium-hero">
-  <div class="row align-items-center g-4">
-    <div class="col-lg-7">
-      <span class="badge text-bg-primary mb-3">升学规划说明 2025版 · 美英双申 / 多国连申</span>
-      <h2 class="display-5 fw-bold mb-3">赢在瀛动，成就梦想</h2>
-      <p class="lead text-secondary">以“陪伴式共同成长”为核心，覆盖学科预备、申请定位、文书执行、签证与海外服务，打造结果导向的留学规划方案。</p>
-      <div class="d-flex flex-wrap gap-2 mt-3">
-        <a class="btn btn-primary" href="{{ url_for('index') }}">查看大学排行榜</a>
-        <a class="btn btn-outline-primary" href="#timeline">查看时间规划</a>
-      </div>
-    </div>
-    <div class="col-lg-5">
-      <div class="hero-card stat-card">
-        <div class="stat"><span>721</span><small>累计服务家庭</small></div>
-        <div class="stat"><span>90%</span><small>升读TOP院校比例</small></div>
-        <div class="stat"><span>18年+</span><small>专业服务经验</small></div>
-      </div>
+<section class="showcase mb-4">
+  <div class="showcase-left">
+    <p class="kicker">YINGDONG EDUCATION</p>
+    <h1>专业留学规划，让成长更有方向</h1>
+    <p>以“规划 + 执行 + 结果复盘”为核心，为学生提供个性化升学方案，覆盖美英双申与多国连申。</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="{{ url_for('index') }}">查看排行榜</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('guide') }}">留学专业指南</a>
     </div>
   </div>
-</section>
-
-<section class="panel p-4 mb-4" id="timeline">
-  <h3 class="fw-bold mb-3">九大服务流程</h3>
-  <div class="timeline-grid">
-    <div>1 咨询阶段</div><div>2 签约阶段</div><div>3 明确目标</div>
-    <div>4 申请准备</div><div>5 开始申请</div><div>6 录取通知</div>
-    <div>7 签证服务</div><div>8 行前服务</div><div>9 海外服务</div>
+  <div class="showcase-right">
+    <div class="metric"><strong>721</strong><span>累计服务家庭</span></div>
+    <div class="metric"><strong>90%</strong><span>升读TOP院校</span></div>
+    <div class="metric"><strong>18年+</strong><span>行业经验</span></div>
   </div>
 </section>
 
-<section class="row g-3 mb-4">
-  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">学科预备</h6><p class="small text-secondary mb-0">Alevel / IB / AP 路径对比与能力定位。</p></div></div>
-  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">英语能力</h6><p class="small text-secondary mb-0">阅读、写作、标化考试全链路提升。</p></div></div>
-  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">申请策略</h6><p class="small text-secondary mb-0">美英双申+多国连申，提升录取确定性。</p></div></div>
-  <div class="col-md-6 col-xl-3"><div class="panel p-3 h-100"><h6 class="fw-bold">结果管理</h6><p class="small text-secondary mb-0">签证、行前、海外落地与职业规划。</p></div></div>
+<section class="grid-2 mb-4">
+  <article class="panel p-4">
+    <h3>我们的服务方式</h3>
+    <ul>
+      <li>一对一定位：兴趣、能力、职业路径三维分析</li>
+      <li>多国联申：美/英/加/澳/新/港策略联动</li>
+      <li>全流程执行：文书、申请、签证、行前、海外服务</li>
+    </ul>
+  </article>
+  <article class="panel p-4 accent-panel">
+    <h3>2025关键节点</h3>
+    <ul>
+      <li>4-6月：定方向 + 选校池 + 活动盘点</li>
+      <li>7-10月：文书 + 推荐信 + ED/EA递交</li>
+      <li>11-次年2月：RD申请 + 面试 + 结果跟进</li>
+    </ul>
+  </article>
 </section>
 
-<section class="panel p-4 mb-4">
-  <h3 class="fw-bold mb-3">2025申请季关键节点</h3>
-  <div class="checklist row g-2">
-    <div class="col-md-4">4月：梳理奖项/活动，构建学术身份</div>
-    <div class="col-md-4">6月：确定大学与专业目标</div>
-    <div class="col-md-4">8月：文书草稿完成</div>
-    <div class="col-md-4">10-11月：ED/REA/EA递交</div>
-    <div class="col-md-4">12月：ED/EA放榜与ED2准备</div>
-    <div class="col-md-4">次年2月：推荐信/送分/认证复核</div>
-  </div>
+<section class="service-strip mb-4">
+  <div>咨询阶段</div><div>签约阶段</div><div>明确目标</div>
+  <div>申请准备</div><div>开始申请</div><div>录取通知</div>
+  <div>签证服务</div><div>行前服务</div><div>海外服务</div>
 </section>
 
-<section class="panel p-4 mb-4 promise-list">
-  <h3 class="fw-bold mb-3">瀛动教育特别承诺</h3>
-  <div class="row g-3">
-    <div class="col-md-4"><div class="promise-item"><strong>SERVICE 1</strong><p class="mb-0">申请不成功，退还服务费用。</p></div></div>
-    <div class="col-md-4"><div class="promise-item"><strong>SERVICE 2</strong><p class="mb-0">近十年留学签证通过率 100%。</p></div></div>
-    <div class="col-md-4"><div class="promise-item"><strong>SERVICE 3</strong><p class="mb-0">从“成功留学”跃升到“留学成功”。</p></div></div>
+<section class="panel p-4 cta-banner">
+  <div>
+    <h3 class="mb-1">现在开始，制定你的升学路线图</h3>
+    <p class="mb-0 text-secondary">我们将根据你的成绩背景、活动经历与目标专业给出可执行方案。</p>
   </div>
-</section>
-
-<section class="panel p-4">
-  <div class="row align-items-center g-3">
-    <div class="col-lg-8">
-      <h3 class="fw-bold mb-2">立即获取个性化升学方案</h3>
-      <p class="text-secondary mb-0">根据学生兴趣、成绩、活动与职业方向，生成可执行的留学规划路线图。</p>
-    </div>
-    <div class="col-lg-4 text-lg-end">
-      <a class="btn btn-primary" href="{{ url_for('admin') }}">预约咨询 / 后台管理</a>
-    </div>
-  </div>
+  <a class="btn btn-primary" href="{{ url_for('admin') }}">预约咨询</a>
 </section>
 {% endblock %}
