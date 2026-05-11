@@ -77,3 +77,31 @@ body {
 .service-strip>div{background:#f8fbff;border:1px solid #dbeafe;border-radius:10px;padding:.65rem .8rem;font-weight:600;color:#334155}
 .cta-banner{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 @media (max-width: 900px){.showcase,.grid-2{grid-template-columns:1fr}.service-strip{grid-template-columns:1fr 1fr}.cta-banner{flex-direction:column;align-items:flex-start}}
+
+body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
+.site-navbar{background:#fff;box-shadow:0 2px 14px rgba(15,23,42,.08);z-index:30}
+.nav-wrap{display:flex;align-items:center;gap:1rem;padding:.8rem 0}
+.brand{display:flex;flex-direction:column;text-decoration:none}
+.brand-title{font-weight:700;color:#0b1220;letter-spacing:.08em}
+.brand-sub{font-size:.75rem;color:#64748b}
+.menu-list{display:flex;list-style:none;gap:1.1rem;margin:0;padding:0}
+.menu-list a{text-decoration:none;color:#111827;font-weight:500}
+.nav-actions{display:flex;align-items:center;gap:.5rem;margin-left:.8rem}
+.avatar{width:30px;height:30px;border-radius:999px;background:linear-gradient(135deg,#14b8a6,#0ea5e9)}
+.menu-toggle{border:none;background:transparent;font-size:1.3rem;display:none}
+
+.hero-onepage{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1800&q=80');background-size:cover;background-position:center}
+.hero-onepage .overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(2,6,23,.55))}
+.hero-content{position:relative;color:#fff;padding:1rem}
+.hero-kicker{letter-spacing:.25em;font-size:.8rem}
+.hero-title{font-size:clamp(3.2rem,14vw,9.5rem);font-weight:900;line-height:.9;margin:.4rem 0}
+.hero-sub{font-size:clamp(1rem,2vw,1.35rem);margin-bottom:1.2rem}
+.book-btn{display:inline-block;background:#000;color:#fff;padding:.8rem 1.6rem;text-decoration:none;transition:.2s;}
+.book-btn:hover{transform:scale(1.04);box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.onepage-section{padding:4rem 0;background:#0b1220;color:#fff;border-top:1px solid rgba(255,255,255,.06)}
+
+@media (max-width: 991px){
+  .menu-toggle{display:block}
+  .nav-actions{margin-left:auto}
+  .menu-list{flex-direction:column;padding-top:.75rem}
+}

@@ -5,41 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{ title or '瀛动教育 | Ranking' }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light glass-nav border-bottom">
-  <div class="container py-2">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('index') }}">
-      <img src="{{ url_for('static', filename='logo.svg') }}" alt="瀛动教育" height="36">
+<nav class="site-navbar sticky-top">
+  <div class="container nav-wrap">
+    <a class="brand" href="{{ url_for('home') }}">
+      <span class="brand-title">ALLAN JOHNSON</span>
+      <span class="brand-sub">Personal Life Coach</span>
     </a>
-    <div class="d-flex gap-2">
-      <a class="btn btn-outline-light btn-sm" href="{{ url_for('home') }}">官网首页</a>
-      <a class="btn btn-outline-light btn-sm" href="{{ url_for('index') }}">排行榜</a>
-      <a class="btn btn-outline-light btn-sm" href="{{ url_for('guide') }}">留学指南</a>
-      <a class="btn btn-primary btn-sm" href="{{ url_for('admin') }}">后台管理</a>
+
+    <button class="menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">☰</button>
+    <div class="collapse navbar-collapse" id="mainMenu">
+      <ul class="menu-list ms-auto">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#plans">Plans</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="{{ url_for('guide') }}">Guides</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#members">Members</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-actions">
+      <span class="bell">🔔</span>
+      <span class="avatar"></span>
+      <span class="arrow">▾</span>
     </div>
   </div>
 </nav>
 
-<header class="hero-section">
-  <div class="container py-5">
-    <div class="hero-card">
-      <h1 class="display-6 fw-bold mb-2">2026 美国大学排名</h1>
-      <p class="mb-0 text-secondary">以清晰数据和可筛选维度，帮助学生更快找到合适院校。</p>
-    </div>
-  </div>
-</header>
-
-<div class="container pb-5">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-    {% if messages %}
-      {% for category, message in messages %}
-        <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
-      {% endfor %}
-    {% endif %}
-  {% endwith %}
-  {% block content %}{% endblock %}
-</div>
+{% block content %}{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

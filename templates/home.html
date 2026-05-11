@@ -1,52 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="showcase mb-4">
-  <div class="showcase-left">
-    <p class="kicker">YINGDONG EDUCATION</p>
-    <h1>专业留学规划，让成长更有方向</h1>
-    <p>以“规划 + 执行 + 结果复盘”为核心，为学生提供个性化升学方案，覆盖美英双申与多国连申。</p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="{{ url_for('index') }}">查看排行榜</a>
-      <a class="btn btn-outline-primary" href="{{ url_for('guide') }}">留学专业指南</a>
-    </div>
-  </div>
-  <div class="showcase-right">
-    <div class="metric"><strong>721</strong><span>累计服务家庭</span></div>
-    <div class="metric"><strong>90%</strong><span>升读TOP院校</span></div>
-    <div class="metric"><strong>18年+</strong><span>行业经验</span></div>
+<section class="hero-onepage" id="about">
+  <div class="overlay"></div>
+  <div class="hero-content">
+    <p class="hero-kicker">AMBITION IS THE FIRST STEP TOWARDS</p>
+    <h1 class="hero-title">SUCCESS</h1>
+    <p class="hero-sub">Now Available for Online Coaching</p>
+    <a class="book-btn" href="#contact">Book Now</a>
   </div>
 </section>
 
-<section class="grid-2 mb-4">
-  <article class="panel p-4">
-    <h3>我们的服务方式</h3>
-    <ul>
-      <li>一对一定位：兴趣、能力、职业路径三维分析</li>
-      <li>多国联申：美/英/加/澳/新/港策略联动</li>
-      <li>全流程执行：文书、申请、签证、行前、海外服务</li>
-    </ul>
-  </article>
-  <article class="panel p-4 accent-panel">
-    <h3>2025关键节点</h3>
-    <ul>
-      <li>4-6月：定方向 + 选校池 + 活动盘点</li>
-      <li>7-10月：文书 + 推荐信 + ED/EA递交</li>
-      <li>11-次年2月：RD申请 + 面试 + 结果跟进</li>
-    </ul>
-  </article>
-</section>
-
-<section class="service-strip mb-4">
-  <div>咨询阶段</div><div>签约阶段</div><div>明确目标</div>
-  <div>申请准备</div><div>开始申请</div><div>录取通知</div>
-  <div>签证服务</div><div>行前服务</div><div>海外服务</div>
-</section>
-
-<section class="panel p-4 cta-banner">
-  <div>
-    <h3 class="mb-1">现在开始，制定你的升学路线图</h3>
-    <p class="mb-0 text-secondary">我们将根据你的成绩背景、活动经历与目标专业给出可执行方案。</p>
-  </div>
-  <a class="btn btn-primary" href="{{ url_for('admin') }}">预约咨询</a>
-</section>
+<section class="onepage-section" id="services"><div class="container"><h2>Services</h2></div></section>
+<section class="onepage-section" id="plans"><div class="container"><h2>Plans</h2></div></section>
+<section class="onepage-section" id="blog"><div class="container"><h2>Blog</h2></div></section>
+<section class="onepage-section" id="contact"><div class="container"><h2>Contact</h2></div></section>
+<section class="onepage-section" id="members"><div class="container"><h2>Members</h2></div></section>
 {% endblock %}
