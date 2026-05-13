@@ -222,3 +222,5 @@ h1,h2,h3,h4,h5,.brand-title{font-family: Georgia,'Times New Roman','Noto Serif S
 .timeline-list span{color:#0c4a8a!important}
 blockquote{border-left:4px solid #0c4a8a!important}
 .container, .grace-profile-clean{max-width:1180px}
+
+.testimonial-grid{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}\n@media (max-width: 900px){.testimonial-grid{grid-template-columns:1fr}}
