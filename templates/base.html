@@ -19,11 +19,12 @@
     <button class="menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainMenu">☰</button>
     <div class="collapse navbar-collapse" id="mainMenu">
       <ul class="menu-list ms-auto">
-        <li><a href="{{ url_for('home') }}#about">About</a></li>
+        <li><a href="{{ url_for('home') }}">首页</a></li>
         <li><a href="{{ url_for('home') }}#services">申请服务</a></li>
         <li><a href="{{ url_for('index') }}">排行榜</a></li>
         <li><a href="{{ url_for('guide') }}">留学知道</a></li>
-        <li><a href="{{ url_for('contact_page') }}">Contact</a></li>
+        <li><a href="{{ url_for('contact_page') }}">联系咨询</a></li>
+        <li><a href="{{ url_for('admin') }}">后台管理</a></li>
       </ul>
     </div>
 
