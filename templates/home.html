@@ -15,7 +15,7 @@
     <img class="profile-photo-real" src="{{ url_for('static', filename='grace-photo.jpg') }}" alt="李晓宇 Grace" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80';">
   </div>
   <div class="profile-text-col">
-    <h2>Grace Li</h2>
+    <h2>主讲：李晓宇-Grace</h2>
     <div class="profile-headline">
       <p>美国U.S.News高级升学顾问</p>
       <p>国际教育联盟 NAFSA会员</p>
@@ -55,40 +55,8 @@
 </section>
 
 <section class="panel p-4 mb-4 section-spaced" id="testimonials">
-  <h3 class="fw-bold mb-3">客户反馈（50条）</h3>
-  <div class="d-flex justify-content-between align-items-center mb-3 flex-wrap gap-2">
-    <label class="small text-secondary">每页显示
-      <select id="pageSize" class="form-select form-select-sm d-inline-block" style="width:90px">
-        <option value="5">5</option>
-        <option value="10" selected>10</option>
-        <option value="20">20</option>
-      </select>
-      条
-    </label>
-    <div id="pager" class="small"></div>
-  </div>
-  <div id="testimonialList" class="testimonial-grid"></div>
+  <h3 class="fw-bold mb-3">客户评价</h3>
+  <blockquote>“Grace老师的时间线管理非常扎实，我们在申请季几乎没有踩坑。” —— 家长M（上海）</blockquote>
+  <blockquote>“从专业定位到文书，整个过程非常有方向感。” —— 学生K（北京国际部）</blockquote>
 </section>
-<script>
-const testimonials = Array.from({length:50}, (_,i)=>({
-  name:`家长${i+1}`,
-  city:["北京","上海","深圳","杭州","广州"][i%5],
-  text:`反馈${i+1}：顾问团队在选校定位、文书打磨与时间管理方面非常专业，孩子申请路径更清晰。`
-}));
-let currentPage = 1;
-let pageSize = 10;
-function renderTestimonials(){
-  const totalPages = Math.ceil(testimonials.length / pageSize);
-  if(currentPage>totalPages) currentPage=totalPages;
-  const start=(currentPage-1)*pageSize;
-  const pageData=testimonials.slice(start,start+pageSize);
-  const list=document.getElementById('testimonialList');
-  list.innerHTML=pageData.map(t=>`<blockquote><strong>${t.name}（${t.city}）</strong><br>${t.text}</blockquote>`).join('');
-  document.getElementById('pager').innerHTML=`第 ${currentPage} / ${totalPages} 页 <button onclick="prevPage()" class="btn btn-sm btn-outline-secondary ms-2">上一页</button> <button onclick="nextPage()" class="btn btn-sm btn-outline-secondary">下一页</button>`;
-}
-function prevPage(){ if(currentPage>1){currentPage--; renderTestimonials();}}
-function nextPage(){ const totalPages=Math.ceil(testimonials.length/pageSize); if(currentPage<totalPages){currentPage++; renderTestimonials();}}
-document.getElementById('pageSize').addEventListener('change', e=>{pageSize=parseInt(e.target.value,10);currentPage=1;renderTestimonials();});
-renderTestimonials();
-</script>
 {% endblock %}
