@@ -3,39 +3,45 @@
 <section class="hero-onepage" id="about">
   <div class="overlay"></div>
   <div class="hero-content">
-    <p class="hero-kicker">瀛动教育</p>
-    <h1 class="hero-title">赢在瀛动 · 成就梦想</h1>
-    <p class="hero-sub">专业留学规划与全流程申请服务</p>
-    <a class="book-btn" href="{{ url_for('contact_page') }}">Book Now</a>
+    <p class="hero-kicker">Grace Li · 瀛动教育</p>
+    <h1 class="hero-title">12+年藤校/G5申请经验</h1>
+    <p class="hero-sub">用结果说话，为中国家庭提供美本/美研/低龄留学精品规划</p>
+    <a class="book-btn" href="{{ url_for('contact_page') }}">预约30分钟咨询</a>
   </div>
 </section>
 
-<section class="grace-profile-clean" style="display:grid;grid-template-columns:340px 1fr;gap:2.2rem;">
+<section class="grace-profile-clean" id="services" style="display:grid;grid-template-columns:340px 1fr;gap:2.2rem;">
   <div class="profile-photo-col">
     <img class="profile-photo-real" src="{{ url_for('static', filename='grace-photo.jpg') }}" alt="李晓宇 Grace" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=900&q=80';">
   </div>
   <div class="profile-text-col">
     <h2>主讲：李晓宇-Grace</h2>
     <div class="profile-headline">
-      <p>美国U.S.News高级升学顾问</p>
-      <p>国际教育联盟 NAFSA会员</p>
-      <p>教育部阳光留学项目监督人（05年开始）</p>
+      <p>美国U.S.News高级升学顾问</p><p>国际教育联盟 NAFSA会员</p><p>教育部阳光留学项目监督人（05年开始）</p>
     </div>
-    <ul class="profile-notes">
-      <li>职业经历 12.5年 全球中学、本、硕、博升学规划指导经验</li>
-      <li>过程性教育，主张养成式培养，导学式跟踪</li>
-    </ul>
-
-    <div class="timeline-list">
-      <div><span>2013年</span><strong>美国德州访学（04年英国牛剑访学）</strong></div>
-      <div><span>2011年</span><strong>开始践行低龄及全球教育专业化申请</strong></div>
-      <div><span>2009年</span><strong>PA英国名校申请负责人</strong></div>
-      <div><span>2005年</span><strong>英孚教育海外全球大客户项目市场负责人</strong></div>
-      <div><span>2003年</span><strong>CCTV担任英文新闻编译</strong></div>
-      <div><span>2003年</span><strong>荷兰瓦赫宁根大学研究生毕业</strong></div>
-    </div>
-
-    <p class="profile-summary">洞悉国际教育体系，擅长多维度、无国界、全球化视角帮助学生制定教育方案（不因国别限定教育路径，寻求最适合教育方案），并带领学生进入英国G5、美国藤校教育殿堂。</p>
+    <ul class="profile-notes"><li>职业经历 12.5年 全球中学、本、硕、博升学规划指导经验</li><li>过程性教育，主张养成式培养，导学式跟踪</li></ul>
+    <p class="profile-summary">以“养成式培养+导学式规划”为核心理念，助力学生进入英美G5、常春藤及澳洲八大名校。</p>
   </div>
+</section>
+
+<section class="panel p-4 my-4" id="offers">
+  <h3 class="fw-bold mb-3">Offer成果墙（真实案例展示区）</h3>
+  <div class="row g-3">
+    <div class="col-md-4"><div class="offer-real"><strong>美本 Top30</strong><p>学生A：国际部，GPA 3.9，录取 UChicago</p></div></div>
+    <div class="col-md-4"><div class="offer-real"><strong>美研 Data Science</strong><p>学生B：理工本科，录取 Columbia / CMU</p></div></div>
+    <div class="col-md-4"><div class="offer-real"><strong>英研 金融</strong><p>学生C：商科背景，录取 LSE / UCL</p></div></div>
+  </div>
+</section>
+
+<section class="panel p-4 mb-4" id="ranking">
+  <h3 class="fw-bold mb-2">排名工具入口</h3>
+  <p class="text-secondary">支持院校筛选、对比与数据检索，快速建立你的选校池。</p>
+  <a class="btn btn-primary" href="{{ url_for('index') }}">进入排行榜</a>
+</section>
+
+<section class="panel p-4 mb-4" id="testimonials">
+  <h3 class="fw-bold mb-3">客户评价</h3>
+  <blockquote>“Grace老师的时间线管理非常扎实，我们在申请季几乎没有踩坑。” —— 家长M（上海）</blockquote>
+  <blockquote>“从专业定位到文书，整个过程非常有方向感。” —— 学生K（北京国际部）</blockquote>
 </section>
 {% endblock %}

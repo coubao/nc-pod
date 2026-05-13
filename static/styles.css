@@ -155,3 +155,11 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
 
 /* force two-column on desktop */
 @media (min-width: 993px){.grace-profile-clean{display:grid !important;grid-template-columns:340px 1fr !important;}}
+
+
+:root{--brand-navy:#0f172a;--brand-blue:#1e3a8d;--brand-mint:#2dd4bf;--brand-gold:#d4af37}
+body{background:#f8fafc;color:var(--brand-navy)}
+.offer-real{background:#fff;border:1px solid #dbeafe;border-radius:14px;padding:1rem;box-shadow:0 8px 20px rgba(15,23,42,.06)}
+.offer-real strong{color:var(--brand-blue)}
+blockquote{border-left:4px solid var(--brand-mint);padding:.5rem 0 .5rem .8rem;color:#334155}
+.floating-cta{position:fixed;right:16px;bottom:18px;background:linear-gradient(90deg,var(--brand-blue),var(--brand-mint));color:#fff;padding:.72rem 1rem;border-radius:999px;text-decoration:none;z-index:50;box-shadow:0 10px 24px rgba(30,58,138,.35)}
