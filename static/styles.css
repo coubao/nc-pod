@@ -126,3 +126,10 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
 .grace-content h2{font-size:4rem;color:#3f3f46;margin-bottom:2rem}
 .grace-content p{font-size:1.1rem;line-height:1.7;color:#3f3f46;max-width:980px}
 @media (max-width: 992px){.grace-section{grid-template-columns:1fr;padding:3rem 1rem}.photo-placeholder{height:420px}.photo-caption{position:static;margin-top:.8rem;font-size:2rem}.grace-content h2{font-size:2.2rem}}
+
+
+.guide-toc a{text-decoration:none;color:#0f766e}
+.accordion-wrap{display:grid;gap:.8rem;margin-bottom:2rem}
+.guide-card{background:#fff;border:1px solid #dbeafe;border-radius:12px;padding:.35rem .8rem}
+.guide-card summary{cursor:pointer;font-weight:700;color:#0f172a;padding:.5rem 0}
+.guide-body{padding:.3rem 0 .8rem;color:#334155}
