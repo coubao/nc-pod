@@ -100,6 +100,10 @@ def guide():
 def contact_page():
     return render_template('contact.html')
 
+@app.get('/offers')
+def offers():
+    return render_template('offers.html')
+
 @app.get('/admin')
 def admin():
     rankings = Ranking.query.order_by(Ranking.rank.asc()).all()

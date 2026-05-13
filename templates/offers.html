@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel p-4 p-md-5 my-4">
+  <h2 class="fw-bold mb-2">Offer多多（升级版）</h2>
+  <p class="text-secondary mb-0">核心功能：Offer案例库 + 条件筛选 + 数据洞察 + 经验沉淀。</p>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">产品拆解（从0到1）</h3>
+  <div class="row g-3">
+    <div class="col-md-3"><div class="mini-card"><strong>数据层</strong><p>院校/专业/学位/批次/背景/结果</p></div></div>
+    <div class="col-md-3"><div class="mini-card"><strong>筛选层</strong><p>按国家、专业、GPA、标化、年份筛选</p></div></div>
+    <div class="col-md-3"><div class="mini-card"><strong>洞察层</strong><p>录取趋势、热门项目、成功画像</p></div></div>
+    <div class="col-md-3"><div class="mini-card"><strong>社区层</strong><p>案例复盘、经验贴、问答互动</p></div></div>
+  </div>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">Offer筛选器（核心功能）</h3>
+  <form class="row g-2">
+    <div class="col-md-2"><input class="form-control" placeholder="国家/地区"></div>
+    <div class="col-md-2"><input class="form-control" placeholder="学校"></div>
+    <div class="col-md-2"><input class="form-control" placeholder="专业"></div>
+    <div class="col-md-2"><input class="form-control" placeholder="GPA"></div>
+    <div class="col-md-2"><input class="form-control" placeholder="TOEFL/IELTS"></div>
+    <div class="col-md-2"><button class="btn btn-primary w-100" type="button">筛选</button></div>
+  </form>
+</section>
+
+<section class="panel p-4 mb-4">
+  <h3 class="fw-bold mb-3">最新案例</h3>
+  <div class="row g-3">
+    <div class="col-md-6"><div class="offer-card"><h5>Columbia University · MS DS</h5><p>GPA 3.82 / TOEFL 109 / 2段科研 + 1段实习</p><span>2026 Fall · Offer</span></div></div>
+    <div class="col-md-6"><div class="offer-card"><h5>Northwestern · MS CS</h5><p>GPA 3.75 / TOEFL 105 / 开源项目 + AI竞赛</p><span>2026 Fall · Offer</span></div></div>
+    <div class="col-md-6"><div class="offer-card"><h5>UCL · MSc Management</h5><p>GPA 3.7 / IELTS 7.5 / 商赛+咨询实习</p><span>2026 Fall · Offer</span></div></div>
+    <div class="col-md-6"><div class="offer-card"><h5>NUS · MSc Finance</h5><p>GPA 3.78 / IELTS 7.0 / 金融建模项目</p><span>2026 Fall · Offer</span></div></div>
+  </div>
+</section>
+{% endblock %}

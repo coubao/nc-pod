@@ -133,3 +133,5 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
 .guide-card{background:#fff;border:1px solid #dbeafe;border-radius:12px;padding:.35rem .8rem}
 .guide-card summary{cursor:pointer;font-weight:700;color:#0f172a;padding:.5rem 0}
 .guide-body{padding:.3rem 0 .8rem;color:#334155}
+
+.mini-card{background:#f8fbff;border:1px solid #dbeafe;border-radius:10px;padding:.8rem;height:100%}\n.offer-card{border:1px solid #cbd5e1;border-radius:12px;padding:1rem;background:#fff}\n.offer-card h5{margin-bottom:.45rem}\n.offer-card span{font-size:.85rem;color:#0f766e;font-weight:700}\n
