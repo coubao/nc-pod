@@ -1,3 +1,29 @@
+
+/* Design System v2 */
+:root{
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --ink:#0f172a;
+  --muted:#475569;
+  --primary:#1d4ed8;
+  --primary-2:#0ea5e9;
+  --accent:#14b8a6;
+  --ring:rgba(29,78,216,.15);
+  --radius-lg:18px;
+  --radius-md:12px;
+  --shadow-sm:0 4px 12px rgba(15,23,42,.06);
+  --shadow-md:0 10px 28px rgba(15,23,42,.10);
+}
+body{background:var(--bg);color:var(--ink)}
+.panel{background:var(--surface);border:1px solid #e5e7eb;border-radius:var(--radius-lg);box-shadow:var(--shadow-sm)}
+.btn-primary{background:linear-gradient(90deg,var(--primary),var(--primary-2));border:none;border-radius:999px;padding:.6rem 1rem;font-weight:600}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+input.form-control,select.form-select,textarea.form-control{border-radius:var(--radius-md);border:1px solid #cbd5e1}
+input.form-control:focus,select.form-select:focus,textarea.form-control:focus{box-shadow:0 0 0 4px var(--ring);border-color:var(--primary)}
+.table{border-collapse:separate;border-spacing:0 8px}
+.table tbody tr{background:#fff;box-shadow:var(--shadow-sm)}
+.table tbody td{border-top:none;border-bottom:none}
+
 :root {
   --sky-bg-1: #dff4ff;
   --sky-bg-2: #b3e5ff;
@@ -79,7 +105,7 @@ body {
 @media (max-width: 900px){.showcase,.grid-2{grid-template-columns:1fr}.service-strip{grid-template-columns:1fr 1fr}.cta-banner{flex-direction:column;align-items:flex-start}}
 
 body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
-.site-navbar{background:#fff;box-shadow:0 2px 14px rgba(15,23,42,.08);z-index:30}
+.site-navbar{background:#fff;box-shadow:0 6px 20px rgba(15,23,42,.08);z-index:30;border-bottom:1px solid #e2e8f0}
 .nav-wrap{display:flex;align-items:center;gap:1rem;padding:.8rem 0}
 .brand{display:flex;flex-direction:column;text-decoration:none}
 .brand-title{font-weight:700;color:#0b1220;letter-spacing:.08em}
@@ -163,3 +189,7 @@ body{background:#f8fafc;color:var(--brand-navy)}
 .offer-real strong{color:var(--brand-blue)}
 blockquote{border-left:4px solid var(--brand-mint);padding:.5rem 0 .5rem .8rem;color:#334155}
 .floating-cta{position:fixed;right:16px;bottom:18px;background:linear-gradient(90deg,var(--brand-blue),var(--brand-mint));color:#fff;padding:.72rem 1rem;border-radius:999px;text-decoration:none;z-index:50;box-shadow:0 10px 24px rgba(30,58,138,.35)}
+
+.section-spaced{padding-top:1.35rem;padding-bottom:1.35rem}
+.menu-list a{font-weight:600;color:#1e293b}
+.menu-list a:hover{color:#1d4ed8}
