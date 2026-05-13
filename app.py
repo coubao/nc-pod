@@ -96,6 +96,10 @@ def index():
 def guide():
     return render_template('guide.html')
 
+@app.get('/contact')
+def contact_page():
+    return render_template('contact.html')
+
 @app.get('/admin')
 def admin():
     rankings = Ranking.query.order_by(Ranking.rank.asc()).all()

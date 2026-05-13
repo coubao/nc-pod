@@ -105,3 +105,5 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
   .nav-actions{margin-left:auto}
   .menu-list{flex-direction:column;padding-top:.75rem}
 }
+
+.qr-box{background:#fff;border:1px dashed #94a3b8;border-radius:12px;padding:1rem;display:inline-block}
