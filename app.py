@@ -10,6 +10,7 @@ except ModuleNotFoundError as exc:
     ) from exc
 import csv
 import io
+from pathlib import Path
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'change-me-in-production'
@@ -19,13 +20,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-OFFER_IMAGES = [
-    "offers/offer_01.jpg", "offers/offer_02.jpg", "offers/offer_03.jpg",
-    "offers/offer_04.jpg", "offers/offer_05.jpg", "offers/offer_06.jpg",
-    "offers/offer_07.jpg", "offers/offer_08.jpg", "offers/offer_09.jpg",
-    "offers/offer_10.jpg", "offers/offer_11.jpg", "offers/offer_12.jpg",
-    "offers/offer_13.jpg", "offers/offer_14.jpg", "offers/offer_15.jpg",
-]
 
 class Ranking(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
@@ -111,8 +105,14 @@ def contact_page():
 
 @app.get('/offers')
 def offers():
-    slides = [OFFER_IMAGES[i:i + 3] for i in range(0, len(OFFER_IMAGES), 3)]
-    return render_template('offers.html', offer_slides=slides)
+    offers_dir = Path(app.static_folder) / 'offers'
+    image_suffixes = {'.jpg', '.jpeg', '.png', '.webp'}
+    offer_images = sorted(
+        [f'offers/{p.name}' for p in offers_dir.iterdir() if p.suffix.lower() in image_suffixes],
+        key=str.lower,
+    ) if offers_dir.exists() else []
+    slides = [offer_images[i:i + 3] for i in range(0, len(offer_images), 3)]
+    return render_template('offers.html', offer_slides=slides, offer_count=len(offer_images))
 
 @app.get('/admin')
 def admin():
