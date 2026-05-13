@@ -222,3 +222,12 @@ h1,h2,h3,h4,h5,.brand-title{font-family: Georgia,'Times New Roman','Noto Serif S
 .timeline-list span{color:#0c4a8a!important}
 blockquote{border-left:4px solid #0c4a8a!important}
 .container, .grace-profile-clean{max-width:1180px}
+
+.offer-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.offer-image-card{background:#fff;border:1px solid #dbeafe;border-radius:12px;padding:.5rem;box-shadow:0 8px 20px rgba(15,23,42,.06);height:100%}
+.offer-image-card img{width:100%;height:460px;object-fit:cover;border-radius:8px;display:block}
+#offerCarousel .carousel-control-prev,#offerCarousel .carousel-control-next{width:6%}
+@media (max-width: 992px){
+  .offer-gallery-grid{grid-template-columns:1fr}
+  .offer-image-card img{height:420px}
+}

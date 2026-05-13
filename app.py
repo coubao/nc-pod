@@ -18,6 +18,15 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
+
+OFFER_IMAGES = [
+    "offers/offer_01.jpg", "offers/offer_02.jpg", "offers/offer_03.jpg",
+    "offers/offer_04.jpg", "offers/offer_05.jpg", "offers/offer_06.jpg",
+    "offers/offer_07.jpg", "offers/offer_08.jpg", "offers/offer_09.jpg",
+    "offers/offer_10.jpg", "offers/offer_11.jpg", "offers/offer_12.jpg",
+    "offers/offer_13.jpg", "offers/offer_14.jpg", "offers/offer_15.jpg",
+]
+
 class Ranking(db.Model):
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     rank: Mapped[int] = mapped_column(Integer, nullable=False)
@@ -102,7 +111,8 @@ def contact_page():
 
 @app.get('/offers')
 def offers():
-    return render_template('offers.html')
+    slides = [OFFER_IMAGES[i:i + 3] for i in range(0, len(OFFER_IMAGES), 3)]
+    return render_template('offers.html', offer_slides=slides)
 
 @app.get('/admin')
 def admin():
