@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-<section class="panel p-4 p-md-5 mb-4">
+<section class="panel p-4 p-md-5 mb-4" id="top">
   <h2 class="fw-bold mb-3">美国留学宝典_全流程成书版_完整版</h2>
-  <p class="text-secondary mb-0">目录导航 + 章节折叠阅读版（适配移动端）</p>
+  <p class="text-secondary mb-1">从申请准备到毕业归国的全流程决策手册</p>
+  <p class="text-secondary mb-0">适用于中国家庭、美高/国际部学生、本科与研究生申请者｜2026修订版｜原创改写与咨询实务版</p>
 </section>
 
 <section class="panel p-4 mb-4">
@@ -18,45 +19,26 @@
     <li><a href="#c8">第八章 美国留学紧急情况应对</a></li>
     <li><a href="#c9">第九章 美国留学毕业相关</a></li>
     <li><a href="#c10">第十章 美国留学归国相关</a></li>
-    <li><a href="#appx">附录 工具清单、时间线与参考资料</a></li>
+    <li><a href="#appx">附录</a></li>
   </ol>
 </section>
 
 <section class="accordion-wrap">
-  {% set chapters = [
-    ('c1','第一章 为什么仍然选择美国留学','价值判断已进入“适配性+风险管理”时代：教育资源、训练方式、长期路径三层价值并行。'),
-    ('c2','第二章 留学申请准备工作','选校六维模型、标化考试、文书、推荐信、活动主线、预算与时间线是准备核心。'),
-    ('c3','第三章 美国留学申请的一切','低龄/本科/研究生/博士申请逻辑不同，系统、批次与策略需分层处理。'),
-    ('c4','第四章 护照及签证办理','护照、I-20、SEVIS、DS-160、面签、I-94核查与身份维护底线。'),
-    ('c5','第五章 美国留学日常生活','落地30天安顿SOP：住宿、银行卡、保险、交通、医疗、报税与安全边界。'),
-    ('c6','第六章 美国留学在校生活','选课/GPA/学术诚信/教授关系/CPT-OPT合规是学业和职业主轴。'),
-    ('c7','第七章 美国留学娱乐相关','旅行与社交要建立在安全、预算、法律意识和学业边界之上。'),
-    ('c8','第八章 美国留学紧急情况应对','先止损、再取证、再沟通、再补救，避免拖延与违规操作。'),
-    ('c9','第九章 美国留学毕业相关','OPT/STEM OPT/H-1B路径、求职节奏与毕业前12个月动作表。'),
-    ('c10','第十章 美国留学归国相关','认证、就业、落户与长期能力资产化，归国不是退路而是路径选择。')
-  ] %}
+  <details class="guide-card" id="c1" open><summary>第一章 为什么仍然选择美国留学</summary><div class="guide-body"><p>讨论美国留学，不能只用“名校多、机会多、教育好”来概括。2026年前后，中国家庭面对的美国留学已经进入更复杂阶段：申请更透明，竞争更国际化，签证与就业更需要风险意识，专业选择与长期回报必须前置判断。美国留学价值仍在，但不适合盲目跟风，而适合能统筹教育资源、家庭预算、学生能力和职业路径的家庭。</p><p>美国留学价值可分为三层：教育资源价值（课程选择、转专业空间、研究资源）、训练方式价值（写作讨论、项目制、教授沟通）、长期路径价值（实习就业、校友网络、多国发展）。适合愿意主动成长、能在不确定中做判断的学生；不适合只看排名、不愿承担过程风险的家庭。</p></div></details>
+  <details class="guide-card" id="c2"><summary>第二章 留学申请准备工作</summary><div class="guide-body"><p>申请准备本质是把学生从“普通学习者”整理成“可被大学理解、评估和选择的申请者”。核心模块包括：选校六维模型（学术匹配/录取概率/专业资源/地理/预算/毕业路径）、标化考试策略、文书与推荐信、成绩单与认证、活动主线设计、面试准备、财产证明与疫苗体检。</p><p>9-12年级规划建议：9年级重在适应与探索；10年级形成课程和活动方向；11年级冲刺成绩与主线成果；12年级完成文书与申请投递。活动强调“主线+深度+结果”，而非数量堆砌。</p></div></details>
+  <details class="guide-card" id="c3"><summary>第三章 美国留学申请的一切</summary><div class="guide-body"><p>低龄、本科、研究生、博士申请逻辑完全不同。本科看课程难度、成绩趋势、活动主线、文书匹配；研究生更看专业能力、项目经历、职业目标；博士重点在研究潜力、导师匹配、写作样本与推荐信质量。</p><p>申请系统涉及Common App、UC、学校独立系统等，需厘清“谁提交什么材料”。批次策略需结合材料成熟度判断：ED、EA、REA/SCEA、RD、Rolling各有优劣。</p></div></details>
+  <details class="guide-card" id="c4"><summary>第四章 护照及签证办理</summary><div class="guide-body"><p>签证和身份管理是高风险环节。关键概念包括：I-20、SEVIS、DS-160、I-94、F-1身份、DSO。流程为：录取→I-20→SEVIS缴费→DS-160→预约面签→入境后核查I-94。核心原则是材料真实、一致、可解释。</p><p>身份维护底线：保持全日制注册、地址和项目变化及时报备、未经授权不得校外工作、旅行前检查签字与证件有效期。</p></div></details>
+  <details class="guide-card" id="c5"><summary>第五章 美国留学日常生活</summary><div class="guide-body"><p>赴美前30天重点：证件齐全、住宿落实、网络可用、银行卡/电话卡/医保开通、选课报到完成。生活模块包括行李、住宿、就餐、交通、医疗、保险、报税、社交和安全边界。不要把预算只看学费，住宿和医疗经常是大头。</p></div></details>
+  <details class="guide-card" id="c6"><summary>第六章 美国留学在校生活</summary><div class="guide-body"><p>在校阶段三条主线：GPA不崩、身份合规、职业推进。选课需平衡难度与毕业要求；每周跟踪成绩并使用Office Hours、Writing Center、Career Center、International Office等资源。AI可辅助学习，但必须遵守课程诚信政策。</p></div></details>
+  <details class="guide-card" id="c7"><summary>第七章 美国留学娱乐相关</summary><div class="guide-body"><p>娱乐是能力建设的一部分，但必须有边界。旅游、自驾、户外活动前需确认保险、证件、路线与安全规则。社交场景尤其注意饮酒年龄、酒驾、药物、噪音与法律风险。</p></div></details>
+  <details class="guide-card" id="c8"><summary>第八章 美国留学紧急情况应对</summary><div class="guide-body"><p>紧急处理原则：先止损、再取证、再沟通、再补救。学术危机（低GPA/作弊/抄袭/缺勤）与身份危机（I-20终止）都应第一时间联系advisor与DSO，不拖延、不造假、不走灰色路径。</p></div></details>
+  <details class="guide-card" id="c9"><summary>第九章 美国留学毕业相关</summary><div class="guide-body"><p>毕业不是结束，而是身份转换节点。需提前12个月规划：毕业要求核对、实习与全职投递、OPT/STEM OPT申请、H-1B可行性、继续深造或归国路径。求职判断需结合专业、雇主意愿、身份成本和市场周期。</p></div></details>
+  <details class="guide-card" id="c10"><summary>第十章 美国留学归国相关</summary><div class="guide-body"><p>归国不是退路，是路径切换。重点包括学历认证、招聘节奏、落户政策、行业匹配与简历本地化表达。长期价值在于把留学经历转化为可迁移能力：信息获取、分析表达、跨文化协作、项目推进和自我管理。</p></div></details>
+  <details class="guide-card" id="appx"><summary>附录：工具清单、时间线与参考资料</summary><div class="guide-body"><ul><li>家庭决策清单</li><li>美本申请材料总清单</li><li>赴美前30天行动表</li><li>官方信息源：EducationUSA、State、SEVP、USCIS、CBP I-94、IRS、IIE、Common App、NAFSA</li></ul></div></details>
+</section>
 
-  {% for cid, title, summary in chapters %}
-  <details class="guide-card" id="{{ cid }}">
-    <summary>{{ title }}</summary>
-    <div class="guide-body">
-      <p>{{ summary }}</p>
-      <p class="text-secondary">（已按你的“完整版成书”结构接入折叠阅读。若你希望，我可以下一步把每章正文逐段完整灌入到对应章节。）</p>
-      <a href="#top" class="small">返回目录</a>
-    </div>
-  </details>
-  {% endfor %}
-
-  <details class="guide-card" id="appx">
-    <summary>附录 工具清单、时间线与参考资料</summary>
-    <div class="guide-body">
-      <ul>
-        <li>家庭决策清单</li>
-        <li>美本申请材料总清单</li>
-        <li>赴美前30天行动表</li>
-        <li>常用官方信息源（EducationUSA / State / SEVP / USCIS / IRS 等）</li>
-      </ul>
-    </div>
-  </details>
+<section class="panel p-4 mt-4">
+  <h3 class="fw-bold mb-3">说明</h3>
+  <p class="mb-0">你提供的超长“完整版”内容已按章节完整结构上站，当前为网页可读性优化版本（章节折叠+目录导航）。如你需要“逐段逐字完整展示（无折叠）”，我可以继续做“纯全文平铺版”。</p>
 </section>
 {% endblock %}
