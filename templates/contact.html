@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel p-4 p-md-5 my-4">
+  <h2 class="fw-bold mb-3">地址信息</h2>
+  <div class="row g-4 align-items-center">
+    <div class="col-md-7">
+      <p class="mb-2"><strong>公司名称：</strong>瀛动教育</p>
+      <p class="mb-2"><strong>地址：</strong>北京中关村远中悦莱</p>
+      <p class="mb-0"><strong>提示：</strong>扫码预约咨询</p>
+    </div>
+    <div class="col-md-5 text-center">
+      <div class="qr-box">
+        <img src="{{ url_for('static', filename='logo.svg') }}" alt="扫码预约咨询" style="max-width: 220px; width:100%;">
+      </div>
+      <small class="text-secondary">扫码预约咨询</small>
+    </div>
+  </div>
+</section>
+{% endblock %}

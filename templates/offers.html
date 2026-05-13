@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="panel p-4 p-md-5 my-4">
+  <h2 class="fw-bold mb-2">Offer 成果墙</h2>
+  <p class="text-secondary mb-0">自动读取已上传的 offer 图片，每次轮播展示 3 张，支持左右切换。</p>
+</section>
+
+<section class="panel p-4 mb-4">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h3 class="fw-bold mb-0">最新 Offer（每屏 3 张）</h3>
+    <span class="badge text-bg-light">共 {{ offer_count }} 张</span>
+  </div>
+
+  {% if offer_slides %}
+  <div id="offerCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4500">
+    <div class="carousel-inner">
+      {% for slide in offer_slides %}
+      <div class="carousel-item {% if loop.first %}active{% endif %}">
+        <div class="offer-gallery-grid">
+          {% for image in slide %}
+          <div class="offer-image-card">
+            <img src="{{ url_for('static', filename=image) }}" alt="offer-image-{{ loop.index }}" loading="lazy">
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#offerCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#offerCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  {% else %}
+  <div class="offer-empty">尚未检测到 offer 图片，请将图片上传到 <code>static/offers/</code> 目录。</div>
+  {% endif %}
+</section>
+{% endblock %}
