@@ -152,3 +152,6 @@ body{font-family:'Inter',sans-serif;background:#fff;color:#0b1220}
 
 .profile-photo-real{width:100%;height:640px;object-fit:cover;border-radius:2px;display:block}
 @media (max-width: 992px){.profile-photo-real{height:360px}}
+
+/* force two-column on desktop */
+@media (min-width: 993px){.grace-profile-clean{display:grid !important;grid-template-columns:340px 1fr !important;}}
